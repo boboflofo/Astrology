@@ -1,18 +1,41 @@
 import React, { useState } from 'react';
-import '../Game.css'; 
+import '../Game.css';
 
 const GameForm = () => {
-  const [userExpression, setUserExpression] = useState('');
-  const [userDescription, setUserDescription] = useState('');
-  const [userConcentration, setUserConcentration] = useState('');
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [userAnswers, setUserAnswers] = useState([]);
   const [astrologyData, setAstrologyData] = useState(null);
-  const [crystalBallAnswer, setCrystalBallAnswer] = useState('');
+  const [gameCompleted, setGameCompleted] = useState(false);
 
-  async function handleFormSubmit(event) {
-    event.preventDefault();
+  const questions = [
+    {
+      question: "Would you describe yourself as more...",
+      options: ["Introverted", "Extroverted"]
+    },
+    {
+      question: "You are more...",
+      optionsIntroverted: ["Practical", "Emotional"],
+      optionsExtroverted: ["Social", "Idealistic"]
+    },
+    {
+      question: "You concentrate more on...",
+      options: ["Action", "Preservation", "Learning"]
+    }
+  ];
 
+  const handleOptionClick = (option) => {
+    setUserAnswers([...userAnswers, option]);
+    if (currentQuestionIndex < questions.length - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+    } else {
+      fetchAstrologyData();
+      setGameCompleted(true);
+    }
+  };
+
+  const fetchAstrologyData = async () => {
     try {
-      const response = await fetch(`https://localhost:5001/api/signs?expression=${userExpression}&description=${userDescription}&concentration=${userConcentration}`);
+      const response = await fetch(`https://localhost:5001/api/signs?expression=${userAnswers[0]}&description=${userAnswers[1]}&concentration=${userAnswers[2]}`);
       const jsonResponse = await response.json();
       setAstrologyData(jsonResponse)
       if (!response.ok) {
@@ -20,14 +43,9 @@ const GameForm = () => {
         throw new Error(errorMessage);
       }
 
-      //Crystal ball logic maybe change this to actual answers? idk
-      const answer = ['Yes', 'No', 'Maybe', 'Try again later', 'Outlook not so good'];
-      const randomIndex = Math.floor(Math.random() * answer.length);
-      setCrystalBallAnswer(answer[randomIndex]);
-
+      setAstrologyData(jsonResponse);
     } catch (error) {
       console.error('Error fetching astro data', error);
-      return error;
     }
   };
   
@@ -36,24 +54,45 @@ const GameForm = () => {
     
     
 
-  //   AstrologyApi.getData(apiCall)
-  //     .then((data) => {
-  //       setAstrologyData(data);
-  //     })
-  //     .catch((error) => {
-  //       console.error('Error fetching astro data', error);
-  //     });
-  // };
+  const handlePlayAgain = () => {
+    setCurrentQuestionIndex(0);
+    setUserAnswers([]);
+    setAstrologyData(null);
+    setGameCompleted(false);
+  };
 
   return (
-    //Crystal ball container
     <div className='container'>
-      {/* Crystal ball container */}
       <div className='outer-ball'>
         <div className='crystal-ball'>
           <div className='crystal-ball-inner'>
             <div className='answer' id='answer'>
-              {crystalBallAnswer && <p>{`The crystal ball says: ${crystalBallAnswer}`}</p>}
+              {astrologyData !== null && astrologyData.length > 0 ? (
+                <div>
+                  <p>{`The crystal ball reveals... You are a ${astrologyData[0].signName}`}</p>
+                  {gameCompleted && (
+                    <button onClick={handlePlayAgain}>Play Again</button>
+                  )}
+                </div>
+              ) : (
+                <div>
+                  <p>{questions[currentQuestionIndex].question}</p>
+                  <div>
+                    {currentQuestionIndex === 1 && userAnswers[0] === "Introverted"
+                      ? questions[currentQuestionIndex].optionsIntroverted.map((option, index) => (
+                        <button key={index} onClick={() => handleOptionClick(option)}>{option}</button>
+                      ))
+                      : currentQuestionIndex === 1 && userAnswers[0] === "Extroverted"
+                        ? questions[currentQuestionIndex].optionsExtroverted.map((option, index) => (
+                          <button key={index} onClick={() => handleOptionClick(option)}>{option}</button>
+                        ))
+                        : questions[currentQuestionIndex].options.map((option, index) => (
+                          <button key={index} onClick={() => handleOptionClick(option)}>{option}</button>
+                        ))
+                    }
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -144,6 +183,6 @@ const GameForm = () => {
       
     </div>
   );
-
 };
+
 export default GameForm;
