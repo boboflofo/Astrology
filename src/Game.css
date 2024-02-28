@@ -1,0 +1,56 @@
+
+.crystal-ball {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, #ffffff 10%, rgba(255, 255, 255, 0) 70%);
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  overflow: hidden;
+}
+
+.crystal-ball-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.answer {
+  font-size: 18px;
+  text-align: center;
+  color: #333;
+  display: none; /* Initially hidden */
+}
+
+@keyframes shake {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+  75% { transform: rotate(-3deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.shaking {
+  animation: shake 0.5s ease-in-out;
+}
+
+.selected {
+  font-size: 1.2em;
+  color: white;
+  background-color: #f6c042;
+  transition: transform 0.3s ease;
+  
+}
+
+.selected:hover {
+  transform: scale(1.1);
+}
