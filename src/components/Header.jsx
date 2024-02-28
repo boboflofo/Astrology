@@ -6,11 +6,11 @@ function Header() {
         <ul>
           <h1>Crystal Cosmos</h1>
           <h2>Let Our Ball Unveil Your Sun Sign</h2>
-          <li><Link to="/">Crystal Quiz</Link></li>
+          <p><Link to="/">Crystal Quiz</Link></p>
           <br />
-          <li><Link to="/findSign">Find Your Sign</Link></li>
+          <p><Link to="/findSign">Find Your Sign</Link></p>
           <br />
-          <li><Link to="/education">Zodiac School</Link></li>
+          <p><Link to="/education">Zodiac School</Link></p>
         </ul>
       </nav>
     </header>

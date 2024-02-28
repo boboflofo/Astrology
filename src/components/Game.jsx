@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../Game.css'; 
+import '../Game.css';
 
 const GameForm = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -32,7 +32,7 @@ const GameForm = () => {
 
   const fetchAstrologyData = async () => {
     try {
-      const response = await fetch (`https://localhost:5001/api/signs?expression=${userAnswers[0]}&description=${userAnswers[1]}&concentration=${userAnswers[2]}`);
+      const response = await fetch(`https://localhost:5001/api/signs?expression=${userAnswers[0]}&description=${userAnswers[1]}&concentration=${userAnswers[2]}`);
       const jsonResponse = await response.json();
 
       if (!response.ok) {

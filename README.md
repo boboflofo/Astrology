@@ -1,8 +1,8 @@
 # Astology App
 
-#### This fun application will allow users to play a game to guess their sign, input their date of birth to get their actual sun sign and learn about other signs.
+### This fun application will allow users to play a game to guess their sign, input their date of birth to get their actual sun sign and learn about other signs.
 
-#### By Jonathan Song, Monica Barboza, Zuri Gallegos, and Brianca Knight
+### By Jonathan Song, Monica Barboza, Zuri Gallegos, and Brianca Knight
 
 ## Technologies Used
 
