@@ -14,7 +14,7 @@ const GameForm = () => {
     try {
       const response = await fetch(`https://localhost:5001/api/signs?expression=${userExpression}&description=${userDescription}&concentration=${userConcentration}`);
       const jsonResponse = await response.json();
-
+      setAstrologyData(jsonResponse)
       if (!response.ok) {
         const errorMessage = `Error fetching astro data: ${response.status} ${response.statusText} ${jsonResponse.message}`;
         throw new Error(errorMessage);
@@ -30,6 +30,7 @@ const GameForm = () => {
       return error;
     }
   };
+  
       
     
     
@@ -140,6 +141,7 @@ const GameForm = () => {
           </div>
         )}
       </div>
+      
     </div>
   );
 
