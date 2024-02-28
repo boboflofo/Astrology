@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import Education from './Education';
 
 
-function FindSign() {
+function FindSign({educationSign}) {
   const [month, setMonth] = useState('January');
   const [day, setDay] = useState('');
   const [zodiacSign, setZodiacSign] = useState(null);
@@ -34,6 +35,9 @@ function FindSign() {
   };
   return (
     <div>
+      <h2>Find your <em>actual</em> sun sign:</h2>
+      <h3>🙄 ...if you're sick of us guessing... 🙄</h3>
+
       <form onSubmit={handleSubmit}>
         <select name="month" value={month} onChange={(e) => setMonth(e.target.value)}>
           <option value="January">January</option>
@@ -59,8 +63,9 @@ function FindSign() {
         />
         <input type="submit" value="Submit" />
       </form>
-
+  
       {zodiacSign && <p>Your zodiac sign is {zodiacSign}.</p>}
+  
     </div>
   );
 }
