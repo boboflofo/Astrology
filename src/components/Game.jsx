@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import '../Game.css'; 
+import '../Game.css';
 
 const GameForm = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userAnswers, setUserAnswers] = useState([]);
   const [astrologyData, setAstrologyData] = useState(null);
+  const [gameCompleted, setGameCompleted] = useState(false);
 
   const questions = [
     {
@@ -13,7 +14,8 @@ const GameForm = () => {
     },
     {
       question: "You are more...",
-      options: ["Practical", "Emotional", "Social", "Idealistic"]
+      optionsIntroverted: ["Practical", "Emotional"],
+      optionsExtroverted: ["Social", "Idealistic"]
     },
     {
       question: "You concentrate more on...",
@@ -27,12 +29,13 @@ const GameForm = () => {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
       fetchAstrologyData();
+      setGameCompleted(true);
     }
   };
 
   const fetchAstrologyData = async () => {
     try {
-      const response = await fetch (`https://localhost:5001/api/signs?expression=${userAnswers[0]}&description=${userAnswers[1]}&concentration=${userAnswers[2]}`);
+      const response = await fetch(`https://localhost:5001/api/signs?expression=${userAnswers[0]}&description=${userAnswers[1]}&concentration=${userAnswers[2]}`);
       const jsonResponse = await response.json();
 
       if (!response.ok) {
@@ -46,23 +49,42 @@ const GameForm = () => {
     }
   };
 
+  const handlePlayAgain = () => {
+    setCurrentQuestionIndex(0);
+    setUserAnswers([]);
+    setAstrologyData(null);
+    setGameCompleted(false);
+  };
+
   return (
-    //Crystal ball container
     <div className='container'>
-      {/* Crystal ball container */}
       <div className='outer-ball'>
         <div className='crystal-ball'>
           <div className='crystal-ball-inner'>
             <div className='answer' id='answer'>
-              {astrologyData ? (
-                <p>{`The crystal ball reveals: ${astrologyData}`}</p>
+              {astrologyData !== null && astrologyData.length > 0 ? (
+                <div>
+                  <p>{`The crystal ball reveals... You are a ${astrologyData[0].signName}`}</p>
+                  {gameCompleted && (
+                    <button onClick={handlePlayAgain}>Play Again</button>
+                  )}
+                </div>
               ) : (
                 <div>
                   <p>{questions[currentQuestionIndex].question}</p>
                   <div>
-                    {questions[currentQuestionIndex].options.map((option, index) => (
-                      <button key={index} onClick={() => handleOptionClick(option)}>{option}</button>
-                    ))}
+                    {currentQuestionIndex === 1 && userAnswers[0] === "Introverted"
+                      ? questions[currentQuestionIndex].optionsIntroverted.map((option, index) => (
+                        <button key={index} onClick={() => handleOptionClick(option)}>{option}</button>
+                      ))
+                      : currentQuestionIndex === 1 && userAnswers[0] === "Extroverted"
+                        ? questions[currentQuestionIndex].optionsExtroverted.map((option, index) => (
+                          <button key={index} onClick={() => handleOptionClick(option)}>{option}</button>
+                        ))
+                        : questions[currentQuestionIndex].options.map((option, index) => (
+                          <button key={index} onClick={() => handleOptionClick(option)}>{option}</button>
+                        ))
+                    }
                   </div>
                 </div>
               )}
@@ -75,4 +97,3 @@ const GameForm = () => {
 };
 
 export default GameForm;
-
