@@ -21,7 +21,7 @@ async function handleFormSubmit(event){
       setAstrologyData(jsonResponse);
     } catch (error) {
       console.error('Error fetching astro data', error);
-      // Handle error
+      return error;
     }
   };
       
@@ -37,6 +37,8 @@ async function handleFormSubmit(event){
   //       console.error('Error fetching astro data', error);
   //     });
   // };
+  //change radio buttons to check the words...
+  
 
   return (
     <div className='container'>

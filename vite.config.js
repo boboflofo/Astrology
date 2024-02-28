@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [react()],
 })
 
-const path = require('path')
+// const path = require('path')
 
 // export default {
 //   root: path.resolve(__dirname, 'src'),
