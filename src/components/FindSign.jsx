@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Education from './Education';
-import '../App.css'
+import '../App.css';
 
 function FindSign({educationSign}) {
   const [month, setMonth] = useState('January');
@@ -33,7 +33,7 @@ function FindSign({educationSign}) {
   };
 
   return (
-    <div id="find">
+    <div className="find">
       <h2>Find your <em>actual</em> sun sign:</h2>
       <h3>🙄 ...if you're sick of us guessing... 🙄</h3>
 
@@ -71,5 +71,3 @@ function FindSign({educationSign}) {
 }
 
 export default FindSign;
-
-

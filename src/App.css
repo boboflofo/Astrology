@@ -2,10 +2,12 @@
 
 body,
 h1, 
-h2 {
+h2,
+h3 {
   font-family: "Anta", sans-serif;
   color: rgb(200, 158, 158);
 }
+
 .card {
   display: flex;
   flex-direction: column;
@@ -75,3 +77,15 @@ a:visited {
   text-decoration: none;
   color: black;
 }
+
+.find {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 20px;
+  background-color: rgba(180, 158, 200, 0.623); 
+  padding: 20px;
+}
+
