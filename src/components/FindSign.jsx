@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import Education from './Education';
 
-
-function FindSign({educationSign}) {
+function FindSign({ educationSign }) {
   const [month, setMonth] = useState('January');
   const [day, setDay] = useState('');
   const [zodiacSign, setZodiacSign] = useState(null);
@@ -10,12 +9,10 @@ function FindSign({educationSign}) {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!day || isNaN(day) || day < 1 || day > 31) {
-    
       alert('Please enter a valid day (1-31).');
       return;
     }
 
-    
     const zodiacSigns = {
       January: day >= 20 ? 'Aquarius' : 'Capricorn',
       February: day >= 19 ? 'Pisces' : 'Aquarius',
@@ -33,6 +30,7 @@ function FindSign({educationSign}) {
 
     setZodiacSign(zodiacSigns[month]);
   };
+
   return (
     <div id="find">
       <h2>Find your <em>actual</em> sun sign:</h2>
@@ -65,6 +63,7 @@ function FindSign({educationSign}) {
       </form>
   
       {zodiacSign && <p>Your zodiac sign is {zodiacSign}.</p>}
+      {zodiacSign && <Education selectedSign={zodiacSign} />}
   
     </div>
   );

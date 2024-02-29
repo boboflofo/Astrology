@@ -3,7 +3,7 @@ import { Container, Row, Card } from 'react-bootstrap'
 
 import '../App.css'
 
-function Education() {
+function Education({ selectedSign }) {
   const [educationSign, setEducationSign] = useState( [
     { 
       sign: "Aries",
@@ -90,54 +90,31 @@ function Education() {
 
   return (
     <>
-    <Container>
-        <div>
-          <Row className='mx-2 cols-md-3'>
-            {educationSign.map((sign, index) => (
-              <Card key={index} className='col-md-4 my-2' id="education">
-                <Card.Body onClick={() => toggleDisplay(index)}>
-                  <Card.Title>{sign.sign}</Card.Title>
-                  {showText[index] ? (
-                    <Card.Text>
-                      <p>{sign.dates}</p>
-                      <div className="card-overlay">
-                        {sign.traits.map((trait, traitIndex) => (
-                          <p key={traitIndex}>{trait}</p>
-                        ))}
-                      </div>
-                    </Card.Text>
-                  ) : (
-                    <div className="back-image" onClick={() => toggleDisplay(index)} style={{ backgroundImage: `url(${sign.imageUrl})` }}></div>
-                  )}
-                </Card.Body>
-              </Card>
-            ))}
-          </Row>
-        </div>
-      </Container>
-
-     {/* <Container>
-  // <Row className='mx-2'>
-  //   {educationSign.map((sign, index) => (
-  //     <Col key={index} className='col-md-3 my-2'>
-  //       <Card>
-  //         <Card.Body>
-  //           <Card.Title>{sign.sign}</Card.Title>
-  //           <Card.Text>
-  //             <p>{sign.dates}</p>
-  //             <ul>
-  //               {sign.traits.map((trait, index) => (
-  //                 <li key={index}>{trait}</li>
-  //               ))}
-  //             </ul>
-  //           </Card.Text>
-  //         </Card.Body>
-  //       </Card>
-  //     </Col>
-  //   ))}
-  // </Row>
-  // </Container> */}
-
+     <Container>
+      <Row className='mx-2 cols-md-3'>
+        {educationSign.map((sign, index) => (
+          (selectedSign && selectedSign === sign.sign) || !selectedSign ? (
+            <Card key={index} className='col-md-4 my-2' id="education">
+              <Card.Body onClick={() => toggleDisplay(index)}>
+                <Card.Title>{sign.sign}</Card.Title>
+                {showText[index] ? (
+                  <Card.Text>
+                    <p>{sign.dates}</p>
+                    <div className="card-overlay">
+                      {sign.traits.map((trait, traitIndex) => (
+                        <p key={traitIndex}>{trait}</p>
+                      ))}
+                    </div>
+                  </Card.Text>
+                ) : (
+                  <div className="back-image" onClick={() => toggleDisplay(index)} style={{ backgroundImage: `url(${sign.imageUrl})` }}></div>
+                )}
+              </Card.Body>
+            </Card>
+          ) : null
+        ))}
+      </Row>
+    </Container>
     </>
   )
 }
