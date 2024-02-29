@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../Game.css';
+import '../App.css'
 
 const GameForm = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -22,8 +23,6 @@ const GameForm = () => {
       options: ["Action", "Preservation", "Learning"]
     }
   ];
-
-  
 
   const handleOptionClick = (option) => {
     setUserAnswers([...userAnswers, option]);

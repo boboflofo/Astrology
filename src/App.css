@@ -1,4 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Anta&display=swap');
 
+body,
+h1, 
+h2 {
+  font-family: "Anta", sans-serif;
+  color: rgb(200, 158, 158);
+}
 .card {
   display: flex;
   flex-direction: column;
@@ -10,17 +17,60 @@
 }
 
 #education {
-  background-color: grey;
+  background-color: rgb(180, 158, 200);
 }
 
-
 footer {
-
   padding: 20px;
-  background-color: #f4f4f4;
+  background-color: rgba(180, 158, 200, 0.623);
   text-align: center;
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: rgba(180, 158, 200, 0.623);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  transition: transform 0.3s ease; 
+}
+
+a:hover {
+  text-decoration: none;
+  color: inherit;
+  transform: scale(1.05); 
+}
+
+a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+.title a {
+  text-decoration: none;
+  color: black;
 }

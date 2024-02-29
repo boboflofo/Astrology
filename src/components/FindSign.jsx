@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Education from './Education';
+import '../App.css'
 
-function FindSign({ educationSign }) {
+function FindSign({educationSign}) {
   const [month, setMonth] = useState('January');
   const [day, setDay] = useState('');
   const [zodiacSign, setZodiacSign] = useState(null);
