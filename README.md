@@ -1,6 +1,6 @@
-# Astology App
+# Astrology App
 
-### This fun application will allow users to play a game to guess their sign, input their date of birth to get their actual sun sign and learn about other signs.
+## This fun application will allow users to play a game to guess their sign, input their date of birth to get their actual sun sign and learn about other signs
 
 ### By Jonathan Song, Monica Barboza, Zuri Gallegos, and Brianca Knight
 
@@ -20,12 +20,30 @@
 * Vite
 
 ## Description
+Crystal Cosmos: Unveiling Your Celestial Essence
+
+Welcome to Crystal Cosmos, the ultimate astrology application that seamlessly blends mystique and modernity to unravel the cosmic secrets hidden within you. Here's a glimpse into the enchanting features that make Crystal Cosmos a celestial journey:
+
+Crystal Ball Quiz:
+
+Engage in a whimsical Crystal Ball Quiz that peers into the depths of your soul. Answer a quick series of questions, and let the magical crystal ball unveil the veil shrouding your sun sign. The interactive and entertaining quiz adds a touch of enchantment to your astrological exploration.
+
+Explore Your Sign:
+
+Delve into an immersive exploration of each zodiac sign. Crystal Cosmos provides personality traits , characteristics, and distinctive qualities associated with every sign. Unearth the secrets that make your sign unique, fostering a deeper connection with the celestial energies.
+
+Birthday Sun Sign Calculator:
+
+Input your birthday into our intuitive form, and let Crystal Cosmos accurately calculate your sun sign based on the astrological calendar. Receive instant insights into your actual sun sign, paving the way for a more authentic astrological experience.
+Astrological Knowledge Hub:
+
+Crystal Cosmos boasts a sleek and intuitive design, ensuring a seamless navigation experience. The app's aesthetics blend celestial motifs with modern elegance, creating an atmosphere of cosmic sophistication.
 
 ## Setup/Installation Requirements
 
 * Open terminal or command prompt.
-* Clone the repository by running the following command to your desktop: git clone 
-* Make sure .gitignore is added to repository.
+* Clone the repository by running the following command to your desktop: 
+`git clone https://github.com/boboflofo/Astrology.git'`
 * Install Packages with $ npm install.
 * Build the project with webpack using $vite build.
 * Start a development Server with $ npm run dev.
@@ -35,11 +53,17 @@
 
 ## Api Instructions
 
+ <a href="https://github.com/BriancaKnight/AstrologyApi.Solution.git"> Astrology API Documentation</a>
+
+* Clone the API repository by running this code in your terminal
+`https://github.com/BriancaKnight/AstrologyApi.Solution.git`
 
 ## Known Bugs
+
 * No Known Bugs
 
 ## License
+
 Copyright 2024 MONICA BARBOZA, ZURI GALLEGOS, BRIANCA KNIGHT and JONATHAN SONG
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
