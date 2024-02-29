@@ -100,4 +100,5 @@ For any inquiries, please contact:
 - Brianca Knight: [Email](mailto:briancaknight@gmail.com)
 
 ## Astrology Component Diagram
+
 ![Component Diagram](./src/assets/DiagramComp.png)
