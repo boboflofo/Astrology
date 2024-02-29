@@ -13,12 +13,14 @@ body {
 
 .crystal-ball {
   position: relative;
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 400px;
   background: radial-gradient(circle, #ffffff 10%, rgba(255, 255, 255, 0) 70%);
   border-radius: 50%;
   border: 2px solid #ccc;
   overflow: hidden;
+  transition: transform 0.5s ease;
+  background-position: center center;
 }
 
 .crystal-ball-inner {
@@ -36,10 +38,26 @@ body {
   align-items: center;
 }
 
+
 .answer {
   font-size: 18px;
   text-align: center;
   color: #333;
+  
+}
+
+#game-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 47%;
+  padding-bottom: 40%;
+  width: 800px;
+  height: 800px;
+  background-color: black;
+  background-image: url('../src/assets/Crystal.jpeg');
+  background-size: cover;
+  background-position: center bottom 100%;
   
 }
 
@@ -52,17 +70,35 @@ body {
 }
 
 .shaking {
-  animation: shake 0.5s ease-in-out;
+  animation: shake 4.5s ease-in-out infinite;
 }
 
-.selected {
+button {
   font-size: 1.2em;
   color: white;
-  background-color: #f6c042;
+  background-color: rgb(200, 158, 158);
   transition: transform 0.3s ease;
+  border: none;
   
 }
 
-.selected:hover {
+button:hover {
   transform: scale(1.1);
+  background-color: rgb(163, 138, 188);
+  
+}
+
+@keyframes spinIn {
+  from {
+    opacity: 0;
+    transform: rotate(-90deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotateY(0);
+  }
+}
+
+.question-container.spin-in {
+  animation: spinIn 0.5s ease;
 }

@@ -90,7 +90,7 @@ function Education({ selectedSign }) {
 
   return (
     <>
-     <Container>
+    <Container>
       <Row className='mx-2 cols-md-3'>
         {educationSign.map((sign, index) => (
           (selectedSign && selectedSign === sign.sign) || !selectedSign ? (

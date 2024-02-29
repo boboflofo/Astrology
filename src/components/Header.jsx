@@ -6,14 +6,14 @@ function Header() {
   return (
     <header>
       <nav>
-        <div class="header">
-        <div class="title">
+        <div className="header">
+        <div className="title">
           <Link to="/">
           <h1>Crystal Cosmos</h1>
           <h2>Let Our Ball Unveil Your Sun Sign</h2>
           </Link>
           </div>
-          <div class="nav">
+          <div className="nav">
           <div>
           <p><Link to="/">Crystal Quiz</Link></p>
           </div>
