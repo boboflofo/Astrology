@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../Game.css';
 import '../App.css'
 
@@ -7,6 +7,9 @@ const GameForm = () => {
   const [userAnswers, setUserAnswers] = useState([]);
   const [astrologyData, setAstrologyData] = useState(null);
   const [gameCompleted, setGameCompleted] = useState(false);
+  // Shaking 
+  const [isShaking, setIsShaking] = useState(false);
+  const [isSpinning, setIsSpinning] = useState(false);
 
   const questions = [
     {
@@ -24,14 +27,29 @@ const GameForm = () => {
     }
   ];
 
+  // Spinning animation 
+  useEffect(() => {
+    if (currentQuestionIndex !== 0) {
+      //start spinning animation after a delay
+      const timer = setTimeout(() => {
+        setIsSpinning(true);
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [currentQuestionIndex]);
+
+
   const handleOptionClick = (option) => {
     setUserAnswers([...userAnswers, option]);
+    setIsSpinning(true); // Spinning animation
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
       fetchAstrologyData();
       setGameCompleted(true);
     }
+    // ball shaking
+    setIsShaking(true);
   };
 
   const fetchAstrologyData = async () => {
@@ -55,12 +73,15 @@ const GameForm = () => {
     setUserAnswers([]);
     setAstrologyData(null);
     setGameCompleted(false);
+    //ball shaking
+    setIsShaking(false);
+    setIsSpinning(false);
   };
 
   return (
-    <div className='container'>
+    <div className='container' id='game-container'>
       <div className='outer-ball'>
-        <div className='crystal-ball'>
+        <div className={`crystal-ball ${isShaking ? 'shaking' : ''}`}>
           <div className='crystal-ball-inner'>
             <div className='answer' id='answer'>
               {astrologyData !== null && astrologyData.length > 0 ? (
@@ -71,7 +92,7 @@ const GameForm = () => {
                   )}
                 </div>
               ) : (
-                <div>
+                <div className={`question-container ${isSpinning ? 'spin-in' : ''}`}>
                   <p>{questions[currentQuestionIndex].question}</p>
                   <div>
                     {currentQuestionIndex === 1 && userAnswers[0] === "Introverted"
