@@ -79,6 +79,8 @@ const GameForm = () => {
   };
 
   return (
+    <>
+    <br />
     <div className='container' id='game-container'>
       <div className='outer-ball'>
         <div className={`crystal-ball ${isShaking ? 'shaking' : ''}`}>
@@ -115,6 +117,7 @@ const GameForm = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
