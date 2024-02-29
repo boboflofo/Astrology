@@ -33,7 +33,7 @@ function FindSign({educationSign}) {
   };
 
   return (
-    <div class="find">
+    <div className="find">
       <h2>Find your <em>actual</em> sun sign:</h2>
       <h3>🙄 ...if you're sick of us guessing... 🙄</h3>
 
