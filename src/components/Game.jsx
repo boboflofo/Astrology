@@ -30,7 +30,7 @@ const GameForm = () => {
   // Spinning animation 
   useEffect(() => {
     if (currentQuestionIndex !== 0) {
-      //start spinning animation after a delay
+      //start spinning animation after a delay 
       const timer = setTimeout(() => {
         setIsSpinning(true);
       }, 500);
@@ -48,7 +48,7 @@ const GameForm = () => {
       fetchAstrologyData();
       setGameCompleted(true);
     }
-    // ball shaking
+    
     setIsShaking(true);
   };
 
