@@ -65,9 +65,6 @@ function FindSign({educationSign}) {
         />
         <input type="submit" value="Submit" />
       </form>
-      </div>
-  
-      {zodiacSign && <p>Your zodiac sign is {zodiacSign}.</p>}
       {zodiacSign && <Education selectedSign={zodiacSign} />}
   
 
