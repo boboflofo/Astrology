@@ -99,3 +99,7 @@ button:hover {
 .question-container.spin-in {
   animation: spinIn 0.5s ease;
 }
+
+.back-image {
+  background-size: "cover";
+}
