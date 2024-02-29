@@ -12,16 +12,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <div id="content">
+     
       <Router>
-        <Header />
+      <Header />
         <Routes>
           <Route path="/" element={<Game />} />
           <Route path="/education" element={<Education />} />
           <Route path="/FindSign" element={<FindSign />} />
         </Routes>
-        <Footer/>
+     
       </Router>
-      
+      <Footer/>
     </div>
 );
 }

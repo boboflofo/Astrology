@@ -34,7 +34,7 @@ function FindSign({educationSign}) {
     setZodiacSign(zodiacSigns[month]);
   };
   return (
-    <div>
+    <div id="find">
       <h2>Find your <em>actual</em> sun sign:</h2>
       <h3>🙄 ...if you're sick of us guessing... 🙄</h3>
 
