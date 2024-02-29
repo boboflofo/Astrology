@@ -43,6 +43,7 @@ footer {
   top: 0;
   left: 0;
   right: 0;
+  z-index: 1000;
 }
 
 .title {
@@ -88,4 +89,3 @@ a:visited {
   background-color: rgba(180, 158, 200, 0.623); 
   padding: 20px;
 }
-

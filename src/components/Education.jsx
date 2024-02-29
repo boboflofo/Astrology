@@ -90,6 +90,20 @@ function Education({ selectedSign }) {
 
   return (
     <>
+    <br/>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     <Container>
       <Row className='mx-2 cols-md-3'>
         {educationSign.map((sign, index) => (
@@ -115,6 +129,11 @@ function Education({ selectedSign }) {
         ))}
       </Row>
     </Container>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </>
   )
 }
