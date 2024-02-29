@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Education from './Education';
-
+import '../App.css'
 
 function FindSign({educationSign}) {
   const [month, setMonth] = useState('January');
