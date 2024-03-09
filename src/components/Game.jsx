@@ -56,7 +56,6 @@ const GameForm = () => {
     try {
       const response = await fetch(`https://astrologyapi-solution.onrender.com/api/signs?expression=${userAnswers[0]}&description=${userAnswers[1]}&concentration=${userAnswers[2]}`);
       const jsonResponse = await response.json();
-      console.log('API Response:', response);
 
       if (!response.ok) {
         const errorMessage = `Error fetching astro data: ${response.status} ${response.statusText} ${jsonResponse.message}`;
