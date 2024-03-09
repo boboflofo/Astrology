@@ -1,6 +1,7 @@
 # Astrology App
 
 ## This fun application will allow users to play a game to guess their sign, input their date of birth to get their actual sun sign and learn about other signs
+[Try it out!](https://crystal-cosmos.netlify.app/)
 
 ## Team
 
