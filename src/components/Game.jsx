@@ -14,16 +14,16 @@ const GameForm = () => {
   const questions = [
     {
       question: "Would you describe yourself as more...",
-      options: ["Introverted", "Extroverted"]
+      options: ["introverted", "extroverted"]
     },
     {
       question: "You are more...",
-      optionsIntroverted: ["Practical", "Emotional"],
-      optionsExtroverted: ["Social", "Idealistic"]
+      optionsIntroverted: ["practical", "emotional"],
+      optionsExtroverted: ["social", "idealistic"]
     },
     {
       question: "You concentrate more on...",
-      options: ["Action", "Preservation", "Learning"]
+      options: ["action", "preservation", "learning"]
     }
   ];
 
@@ -56,6 +56,7 @@ const GameForm = () => {
     try {
       const response = await fetch(`https://astrologyapi-solution.onrender.com/api/signs?expression=${userAnswers[0]}&description=${userAnswers[1]}&concentration=${userAnswers[2]}`);
       const jsonResponse = await response.json();
+      console.log('API Response:', response);
 
       if (!response.ok) {
         const errorMessage = `Error fetching astro data: ${response.status} ${response.statusText} ${jsonResponse.message}`;
@@ -97,11 +98,11 @@ const GameForm = () => {
                 <div className={`question-container ${isSpinning ? 'spin-in' : ''}`}>
                   <p>{questions[currentQuestionIndex].question}</p>
                   <div>
-                    {currentQuestionIndex === 1 && userAnswers[0] === "Introverted"
+                    {currentQuestionIndex === 1 && userAnswers[0] === "introverted"
                       ? questions[currentQuestionIndex].optionsIntroverted.map((option, index) => (
                         <button key={index} onClick={() => handleOptionClick(option)}>{option}</button>
                       ))
-                      : currentQuestionIndex === 1 && userAnswers[0] === "Extroverted"
+                      : currentQuestionIndex === 1 && userAnswers[0] === "extroverted"
                         ? questions[currentQuestionIndex].optionsExtroverted.map((option, index) => (
                           <button key={index} onClick={() => handleOptionClick(option)}>{option}</button>
                         ))
